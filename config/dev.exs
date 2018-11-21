@@ -37,7 +37,7 @@ config :phoenix, :stacktrace_depth, 20
 config :tucano, Tucano.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
+  password: "root",
   database: "tucano_dev",
-  hostname: "localhost",
+  hostname: "postgres",
   pool_size: 10
