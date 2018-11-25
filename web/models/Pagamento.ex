@@ -13,6 +13,10 @@ defmodule Tucano.Pagamento do
   def changeset(%Tucano.Pagamento{} = struct, params \\ %{}) do
     struct
     |> cast(params, [:valor])
-    |> validate_required([:valor])
+    |> validate_required([:valor], "Campo não pode estar vazio!")
+    |> validate_number(:valor, greater_than_or_equal_to: 0, message: "Não são aceitos valores negativos!")
+    |> cast_assoc(:tipo_pagamento)
+    |> cast_assoc(:banco)
+    |> cast_assoc(:servico)
   end
 end

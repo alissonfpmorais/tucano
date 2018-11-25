@@ -19,6 +19,11 @@ defmodule Tucano.Servico do
   def changeset(%Tucano.Servico{} = struct, params \\ %{}) do
     struct
     |> cast(params, [:data_inicio, :data_envio, :codigo_postagem])
-    |> validate_required([:data_inicio, :data_envio, :codigo_postagem])
+    |> cast_assoc(:prioridade)
+    |> cast_assoc(:status)
+    |> cast_assoc(:cliente)
+    |> cast_assoc(:endereco)
+    |> cast_assoc(:pagamento)
+    |> cast_assoc(:pedido)
   end
 end

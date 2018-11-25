@@ -13,5 +13,8 @@ defmodule Tucano.Prioridade do
     struct
     |> cast(params, [:nome, :numero])
     |> validate_required([:nome, :numero])
+    |> validate_length(:nome, min: 2, message: "Nome deve conter pelo menos duas letras!")
+    |> validate_number(:numero, greater_than_or_equal_to: 0, message: "Não são aceitos valores negativos!")
+    |> cast_assoc(:servico)
   end
 end

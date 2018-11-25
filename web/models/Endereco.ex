@@ -19,6 +19,8 @@ defmodule Tucano.Endereco do
   def changeset(%Tucano.Endereco{} = struct, params \\ %{}) do
     struct
     |> cast(params, [:rua, :numero, :bairro, :cep, :cidade, :estado, :pais, :complemento])
-    |> validate_required([:rua, :numero, :bairro, :cep, :cidade, :estado, :pais])
+    |> validate_required([:rua, :numero, :bairro, :cep, :cidade, :estado, :pais], message: "Campo não pode estar vazio!")
+    |> cast_assoc(:cliente)
+    |> cast_assoc(:servico)
   end
 end

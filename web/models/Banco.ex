@@ -13,7 +13,8 @@ defmodule Tucano.Banco do
   def changeset(%Tucano.Banco{} = struct, params \\ %{}) do
     struct
     |> cast(params, [:nome])
-    |> validate_required([:nome])
+    |> validate_required([:nome], message: "Campo não pode estar vazio!")
+    |> cast_assoc(:pagamento)
   end
 
   def insert(params \\ %{}) do

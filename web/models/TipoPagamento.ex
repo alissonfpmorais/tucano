@@ -12,5 +12,6 @@ defmodule Tucano.TipoPagamento do
     struct
     |> cast(params, [:tipo])
     |> validate_required([:tipo])
+    |> cast_assoc(:pagamento)
   end
 end

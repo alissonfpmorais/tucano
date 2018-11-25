@@ -11,8 +11,12 @@ defmodule Tucano.Telefone do
   end
 
   def changeset(%Tucano.Telefone{} = struct, params \\ %{}) do
+    alias Tucano.Regex
+
     struct
     |> cast(params, [:numero])
     |> validate_required([:numero])
+    |> validate_format(:numero, Regex.get_regex_of(:telefone), message: "Formato de telefone inválido, ex: (XX)99999-9999")
+    |> cast_assoc(:cliente)
   end
 end
