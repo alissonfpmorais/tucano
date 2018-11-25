@@ -19,7 +19,7 @@ defmodule Tucano.Mixfile do
   def application do
     [mod: {Tucano, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :ecto_sql]]
+                    :phoenix_ecto, :postgrex, :ecto_sql, :ueberauth, :ueberauth_google]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,7 +38,9 @@ defmodule Tucano.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:ecto_sql, "~> 3.0-rc.1"},]
+     {:ecto_sql, "~> 3.0-rc.1"},
+     {:ueberauth, "~> 0.5"},
+     {:ueberauth_google, "~> 0.7"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
