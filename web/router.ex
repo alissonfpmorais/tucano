@@ -17,8 +17,17 @@ defmodule Tucano.Router do
   scope "/", Tucano do
     pipe_through :browser # Use the default browser stack
 
+    get "/", AuthController, :login
   end
 
+  scope "/auth", Tucano do
+    pipe_through :browser
+
+    get "/login", AuthController, :login
+    get "/signout", AuthController, :signout
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end
   # Other scopes may use custom stacks.
   # scope "/api", Tucano do
   #   pipe_through :api
