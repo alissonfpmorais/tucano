@@ -1,0 +1,23 @@
+<h5>Etapas</h5>
+
+<%= if @conn.assigns[:funcionario] do %>
+  <div>
+    <ul class="collection">
+      <%= for etapa <- @etapas do %>
+        <li class="collection-item">
+          <%= etapa.nome %>
+          <div class="right">
+            <%= link "Edit", to: etapa_path(@conn, :edit, etapa) %>
+            <%= link "Delete", to: etapa_path(@conn, :delete, etapa), method: :delete %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="fixed-action-btn">
+    <%= link to: etapa_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+      <i class="material-icons">add</i>
+    <% end %>
+  </div>
+<% end %>
