@@ -44,12 +44,12 @@ defmodule Tucano.Banco do
   end
 
   def delete(id) do
-    Repo.get(Banco, id)
+    get_by_id(id)
     |> Repo.delete
   end
 
   def delete!(id) do
-    Repo.get!(Banco, id)
+    get_by_id!(id)
     |> Repo.delete!
   end
 end
