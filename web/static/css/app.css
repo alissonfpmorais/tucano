@@ -1,1 +1,22 @@
 /* This file is for your main application css. */
+
+.red {
+  color: white;
+  background-color: #CC2222;
+}
+
+/* .btn-google {
+  background-image: url("/images/btn_google_signin_light_normal_web");
+}
+
+.btn-google:focus {
+  background-image: url("/images/btn_google_signin_light_focus_web");
+}
+
+.btn-google:active {
+  background-image: url("/images/btn_google_signin_light_pressed_web");
+}
+
+.btn-google:disabled {
+  background-image: url("/images/btn_google_signin_light_disabled_web");
+} */
