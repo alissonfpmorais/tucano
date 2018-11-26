@@ -1,0 +1,23 @@
+<div>
+  <h5>Bancos</h5>
+
+  <ul class="collection">
+    <%= for banco <- @bancos do %>
+      <li class="collection-item">
+        <%= banco.nome %>
+        <div class="right">
+          <%= link "Edit", to: banco_path(@conn, :edit, banco) %>
+          <%= link "Delete", to: banco_path(@conn, :delete, banco), method: :delete %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="fixed-action-btn">
+  <%= if @conn.assigns[:funcionario] do %>
+    <%= link to: banco_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+      <i class="material-icons">add</i>
+    <% end %>
+  <% end %>
+</div>
