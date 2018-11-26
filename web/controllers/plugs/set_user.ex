@@ -1,14 +1,12 @@
 defmodule Tucano.Plugs.SetUser do
   import Plug.Conn
-  import Phoenix.Controller
 
-  alias Tucano.Repo
   alias Tucano.Funcionario
 
   def init(_params) do
   end
 
-  def call(conn, params) do
+  def call(conn, _params) do
     id = get_session(conn, :funcionario_id)
 
     cond do

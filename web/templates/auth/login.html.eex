@@ -1,0 +1,5 @@
+<div class="jumbotron">
+  <h2>Bem-vindo à aplicação!</h2>
+  <h4>Antes de começar, faça o login!</h4>
+  <%= link "Entrar com Google", to: auth_path(@conn, :request, "google"), method: "get", class: "btn btn-lg red" %>
+</div>
