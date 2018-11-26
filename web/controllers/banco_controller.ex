@@ -17,14 +17,14 @@ defmodule Tucano.BancoController do
 
   def create(conn, %{"banco" => banco}) do
     case Banco.insert(banco) do
-      {:ok, banco} ->
+      {:ok, _banco} ->
         conn
         |> put_flash(:info, "Criação realizada com sucesso!")
         |> redirect(to: banco_path(conn, :index))
       {:error, changeset} ->
         conn
         |> put_flash(:error, "Erro no processo de criação!")
-        |> render "new.html", changeset: changeset
+        |> render("new.html", changeset: changeset)
     end
   end
 
@@ -44,7 +44,7 @@ defmodule Tucano.BancoController do
       {:error, changeset} ->
         conn
         |> put_flash(:error, "Erro no processo de atualização!")
-        |> render "edit.html", changeset: changeset, banco: Banco.get_by_id(banco_id)
+        |> render("edit.html", changeset: changeset, banco: Banco.get_by_id(banco_id))
     end
   end
 
@@ -57,6 +57,6 @@ defmodule Tucano.BancoController do
   end
 
   def show(conn, _params) do
-    TODO
+    conn
   end
 end
