@@ -14,14 +14,14 @@ defmodule Tucano.Cliente do
   end
 
   def changeset(%Tucano.Cliente{} = struct, params \\ %{}) do
-    alias Tucano.Regex
+    alias Tucano.Validations, as: Valids
 
     struct
     |> cast(params, [:nome, :email, :registro, :insc_estadual])
     |> validate_required([:nome, :email], message: "Campo não pode estar vazio!")
     |> validate_length(:nome, min: 2, message: "Nome deve conter pelo menos duas letras!")
-    |> validate_format(:email, Regex.get_regex_of(:email), message: "Formato de e-mail inválido, ex: usuario@email.com")
-    |> validate_format(:registro, Regex.get_regex_of(:registro))
+    |> validate_format(:email, Valids.get_regex_of(:email), message: "Formato de e-mail inválido, ex: usuario@email.com")
+    |> validate_format(:registro, Valids.get_regex_of(:registro))
     |> cast_assoc(:endereco)
     |> cast_assoc(:telefone)
     |> cast_assoc(:servico)
