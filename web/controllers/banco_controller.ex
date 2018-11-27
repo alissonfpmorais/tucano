@@ -6,7 +6,10 @@ defmodule Tucano.BancoController do
   alias Tucano.Banco
 
   def index(conn, _params) do
-    bancos = Banco.get_all
+    bancos =
+      Banco.get_all
+      |> Enum.sort(&(&1.nome <= &2.nome))
+
     render conn, "index.html", bancos: bancos
   end
 

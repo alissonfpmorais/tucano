@@ -7,7 +7,10 @@ defmodule Tucano.EtapaController do
   alias Tucano.Etapa
 
   def index(conn, _params) do
-    etapas = Etapa.get_all
+    etapas =
+      Etapa.get_all
+      |> Enum.sort(&(&1.nome <= &2.nome))
+
     render conn, "index.html", etapas: etapas
   end
 

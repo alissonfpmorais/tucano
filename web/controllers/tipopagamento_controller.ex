@@ -6,7 +6,10 @@ defmodule Tucano.TipoPagamentoController do
   alias Tucano.TipoPagamento
 
   def index(conn, _params) do
-    tipos_pagamento = TipoPagamento.get_all
+    tipos_pagamento =
+      TipoPagamento.get_all
+      |> Enum.sort(&(&1.tipo <= &2.tipo))
+
     render conn, "index.html", tipos_pagamento: tipos_pagamento
   end
 
