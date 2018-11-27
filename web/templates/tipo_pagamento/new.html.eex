@@ -1,0 +1,10 @@
+<h5>Criar novo tipo de pagamento</h5>
+
+<%= form_for @changeset, tipo_pagamento_path(@conn, :create), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :tipo, placeholder: "Tipo", class: "form-control" %>
+    <%= error_tag f, :tipo %>
+  </div>
+
+  <%= submit "Salvar", class: "btn btn-primary" %>
+<% end %>

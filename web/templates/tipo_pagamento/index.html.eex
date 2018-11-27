@@ -1,0 +1,23 @@
+<h5>Tipos de Pagamento</h5>
+
+<%= if @conn.assigns[:funcionario] do %>
+  <div>
+    <ul class="collection">
+      <%= for tipo_pagamento <- @tipos_pagamento do %>
+        <li class="collection-item">
+          <%= tipo_pagamento.tipo %>
+          <div class="right">
+            <%= link "Edit", to: tipo_pagamento_path(@conn, :edit, tipo_pagamento) %>
+            <%= link "Delete", to: tipo_pagamento_path(@conn, :delete, tipo_pagamento), method: :delete %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="fixed-action-btn">
+    <%= link to: tipo_pagamento_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+      <i class="material-icons">add</i>
+    <% end %>
+  </div>
+<% end %>
