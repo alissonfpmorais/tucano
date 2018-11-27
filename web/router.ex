@@ -22,6 +22,7 @@ defmodule Tucano.Router do
     resources "/banco", BancoController
     resources "/etapa", EtapaController
     resources "/prioridade", PrioridadeController
+    resources "/status", StatusController
     resources "/tipo_pagamento", TipoPagamentoController
   end
 
