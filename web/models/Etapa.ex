@@ -34,7 +34,7 @@ defmodule Tucano.Etapa do
 
   def get_by_id!(id), do: Repo.get!(Etapa, id)
 
-  def preload(structs, :pagamento), do: Repo.preload(structs, :pagamento)
+  def preload(structs, :pedido), do: Repo.preload(structs, :pedido)
 
   def preload(structs, _), do: structs
 
