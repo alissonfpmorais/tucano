@@ -1,0 +1,12 @@
+<h5>Criar nova prioridade</h5>
+
+<%= form_for @changeset, prioridade_path(@conn, :create), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :numero, placeholder: "Número", class: "form-control" %>
+    <%= error_tag f, :numero %>
+    <%= text_input f, :nome, placeholder: "Nome", class: "form-control" %>
+    <%= error_tag f, :nome %>
+  </div>
+
+  <%= submit "Salvar", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,23 @@
+<h5>Prioridades</h5>
+
+<%= if @conn.assigns[:funcionario] do %>
+  <div>
+    <ul class="collection">
+      <%= for prioridade <- @prioridades do %>
+        <li class="collection-item">
+          <%= prioridade.numero %> | <%= prioridade.nome %>
+          <div class="right">
+            <%= link "Edit", to: prioridade_path(@conn, :edit, prioridade) %>
+            <%= link "Delete", to: prioridade_path(@conn, :delete, prioridade), method: :delete %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="fixed-action-btn">
+    <%= link to: prioridade_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+      <i class="material-icons">add</i>
+    <% end %>
+  </div>
+<% end %>

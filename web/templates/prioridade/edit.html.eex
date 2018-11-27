@@ -1,0 +1,12 @@
+<h5>Atualizar informações</h5>
+
+<%= form_for @changeset, prioridade_path(@conn, :update, @prioridade), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :nome, placeholder: "Nome", class: "form-control" %>
+    <%= error_tag f, :nome %>
+    <%= text_input f, :numero, placeholder: "Número", class: "form-control" %>
+    <%= error_tag f, :numero %>
+  </div>
+
+  <%= submit "Salvar", class: "btn btn-primary" %>
+<% end %>

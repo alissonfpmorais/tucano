@@ -21,6 +21,8 @@ defmodule Tucano.Router do
     resources "/servico", ServicoController
     resources "/banco", BancoController
     resources "/etapa", EtapaController
+    resources "/prioridade", PrioridadeController
+    resources "/tipo_pagamento", TipoPagamentoController
   end
 
   scope "/auth", Tucano do
