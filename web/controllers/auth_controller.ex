@@ -7,7 +7,7 @@ defmodule Tucano.AuthController do
   def login(conn, _params) do
     case conn.assigns.funcionario do
       nil -> render(conn, "login.html")
-      funcionario -> redirect(conn, to: servico_path(conn, :index))
+      _funcionario -> redirect(conn, to: servico_path(conn, :index))
     end
   end
 
@@ -27,8 +27,6 @@ defmodule Tucano.AuthController do
   end
 
   defp sign_in(conn, response) do
-    IO.inspect response
-
     case response do
       {:ok, funcionario} ->
         conn
